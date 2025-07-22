@@ -16,3 +16,7 @@ app.use("/auth", RouterAuth);
 app.use("/reports", RouterReport);
 app.use("/wall", RouterWall);
 app.use("/contacts", RouterContacts);
+
+app.get("/", (req, res) => {
+  res.send("Servidor safehome, corriendo");
+});
