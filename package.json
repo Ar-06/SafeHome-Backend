@@ -1,0 +1,26 @@
+{
+  "name": "serverportafolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@libsql/client": "^0.15.9",
+    "bcryptjs": "3.0.2",
+    "cloudinary": "^2.7.0",
+    "dotenv": "^17.1.0",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.2",
+    "fs-extra": "^11.3.0",
+    "jsonwebtoken": "9.0.2",
+    "morgan": "1.10.0",
+    "turso": "0.1.0"
+  }
+}
