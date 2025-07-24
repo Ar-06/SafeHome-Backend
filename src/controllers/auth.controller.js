@@ -103,7 +103,7 @@ export const recuperarContraseña = async (req, res) => {
 
   try {
     const result = await db.execute({
-      sql: `SELECT respuesta_seguridad FROM users WHERE email = ?`,
+      sql: `SELECT respuesta_seguridad FROM usuarios WHERE email = ?`,
       args: [email],
     });
 
