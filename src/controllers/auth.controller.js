@@ -78,12 +78,32 @@ export const login = async (req, res) => {
   }
 };
 
+export const obtenerPreguntaSeguridad = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const result = await db.execute({
+      sql: `SELECT pregunta_seguridad FROM usuarios WEHERE email = ?`,
+      args: [email],
+    });
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+
+    const pregunta = result.rows[0].pregunta_seguridad;
+    res.json({ pregunta_seguridad: pregunta });
+  } catch (error) {
+    res.status(500).json({ message: "Error del servidor", error });
+  }
+};
+
 export const recuperarContraseña = async (req, res) => {
   const { email, respuesta_seguridad, nueva_contraseña } = req.body;
 
   try {
     const result = await db.execute({
-      sql: `SELECT * FROM users WHERE email = ?`,
+      sql: `SELECT respuesta_seguridad FROM users WHERE email = ?`,
       args: [email],
     });
 
