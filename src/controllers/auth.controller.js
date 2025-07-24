@@ -125,7 +125,7 @@ export const recuperarContraseña = async (req, res) => {
     const nuevaHash = await bcrypt.hash(nueva_contraseña, 10);
 
     await db.execute({
-      sql: `UPDATE users SET password = ? WHERE email = ?`,
+      sql: `UPDATE usuarios SET contraseña = ? WHERE email = ?`,
       args: [nuevaHash, email],
     });
 
