@@ -83,7 +83,7 @@ export const obtenerPreguntaSeguridad = async (req, res) => {
 
   try {
     const result = await db.execute({
-      sql: `SELECT pregunta_seguridad FROM usuarios WEHERE email = ?`,
+      sql: `SELECT pregunta_seguridad FROM usuarios WHERE email = ?`,
       args: [email],
     });
 
