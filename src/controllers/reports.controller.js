@@ -141,11 +141,11 @@ export const updateReport = async (req, res) => {
       const nombreArchivo = segments[segments.length - 1];
       const publicId = `Reports/${nombreArchivo.split(".")[0]}`;
       await deleteImage(publicId);
-    }
 
-    const resultUpload = await uploadImage(req.files.image.tempFilePath);
-    nuevaFotoUrl = resultUpload.secure_url;
-    await fs.unlink(req.files.image.tempFilePath);
+      const resultUpload = await uploadImage(req.files.image.tempFilePath);
+      nuevaFotoUrl = resultUpload.secure_url;
+      await fs.unlink(req.files.image.tempFilePath);
+    }
 
     await db.execute({
       sql: `UPDATE reportes SET tipo = ?, lugar = ?, hora = ?, descripcion = ?, foto_url = ? WHERE id = ?`,
