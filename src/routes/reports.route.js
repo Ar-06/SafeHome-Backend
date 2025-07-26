@@ -24,7 +24,7 @@ RouterReport.post(
 RouterReport.get("/get", getReports);
 RouterReport.get("/my-reports", authRequires, getReportsByUser);
 RouterReport.delete("/:id/delete", authRequires, deleteReport);
-RouterReport.patch(
+RouterReport.put(
   "/:id/update",
   fileUpload({
     useTempFiles: true,
